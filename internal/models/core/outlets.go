@@ -7,11 +7,14 @@ import (
 )
 
 type Outlets struct {
-	ID         uuid.UUID `gorm:"type:uuid;default:uuid_generate_v4();primaryKey"`
-	BusinessID uuid.UUID `gorm:"type:uuid"`
-	Name       string    `gorm:"type:varchar(150);not null"`
-	Address    string    `gorm:"type:text"`
-	Status     string    `gorm:"type:enum('active','inactive')"`
-	CreatedAt  time.Time
-	UpdatedAt  time.Time
+	ID         uuid.UUID `gorm:"type:uuid;default:uuid_generate_v4();primaryKey" json:"id"`
+	BusinessID uuid.UUID `gorm:"type:uuid;not null" json:"business_id"`
+	Name       string    `gorm:"type:varchar(150);not null" json:"name"`
+	Address    string    `gorm:"type:text" json:"address"`
+	Status     string    `gorm:"type:enum('active','inactive');default:'active'" json:"status"`
+	CreatedAt  time.Time `json:"created_at"`
+	UpdatedAt  time.Time `json:"updated_at"`
+
+	// Relasi
+	Business Business `gorm:"foreignKey:BusinessID" json:"business,omitempty"`
 }

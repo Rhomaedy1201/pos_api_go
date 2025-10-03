@@ -1,9 +1,8 @@
 package main
 
 import (
-	"log"
 	"pos_api_go/config"
-	"pos_api_go/internal/models"
+	"pos_api_go/internal/database"
 
 	"github.com/gin-gonic/gin"
 )
@@ -15,13 +14,9 @@ func main() {
 	// Connect to database
 	config.ConnectDatabase()
 
-	// Auto migrate models (contoh sederhana)
+	// Run migrations
 	db := config.GetDB()
-	err := db.AutoMigrate(&models.User{}, &models.Product{})
-	if err != nil {
-		log.Fatal("Failed to migrate database:", err)
-	}
-	log.Println("Database migration completed!")
+	database.RunMigrations(db)
 
 	// Inisialisasi Gin
 	router := gin.Default()
