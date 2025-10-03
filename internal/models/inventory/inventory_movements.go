@@ -14,7 +14,7 @@ type InventoryMovements struct {
 	ProductVariantID uuid.UUID       `gorm:"type:uuid;not null" json:"product_variant_id"`
 	OutletID         uuid.UUID       `gorm:"type:uuid;not null" json:"outlet_id"`
 	UserID           uuid.UUID       `gorm:"type:uuid;not null" json:"user_id"`
-	Type             string          `gorm:"type:enum('sale','purchase','return','adjustment','transfer_in','transfer_out')" json:"type"`
+	Type             string          `gorm:"type:inventory_movement_type" json:"type"`
 	QtyChange        decimal.Decimal `gorm:"type:decimal(15,2)" json:"qty_change"`
 	Notes            string          `gorm:"type:text" json:"notes"`
 	ReferenceID      *uuid.UUID      `gorm:"type:uuid" json:"reference_id"`

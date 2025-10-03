@@ -11,7 +11,7 @@ type Categories struct {
 	ID        uuid.UUID `gorm:"type:uuid;default:uuid_generate_v4();primaryKey" json:"id"`
 	OutletID  uuid.UUID `gorm:"type:uuid;not null" json:"outlet_id"`
 	Name      string    `gorm:"type:varchar(150);not null" json:"name"`
-	Status    string    `gorm:"type:enum('active','inactive');default:'active'" json:"status"`
+	Status    string    `gorm:"type:category_status;default:'active'" json:"status"`
 	CreatedAt time.Time `json:"created_at"`
 	UpdatedAt time.Time `json:"updated_at"`
 

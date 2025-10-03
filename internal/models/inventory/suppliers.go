@@ -14,7 +14,7 @@ type Suppliers struct {
 	Phone     string    `gorm:"type:varchar(20)" json:"phone"`
 	Email     string    `gorm:"type:varchar(100)" json:"email"`
 	Address   string    `gorm:"type:text" json:"address"`
-	Status    string    `gorm:"type:enum('active','inactive');default:'active'" json:"status"`
+	Status    string    `gorm:"type:supplier_status;default:'active'" json:"status"`
 	CreatedAt time.Time `json:"created_at"`
 	UpdatedAt time.Time `json:"updated_at"`
 

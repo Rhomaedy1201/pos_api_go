@@ -15,8 +15,8 @@ type UserOutletRoles struct {
 	CreatedAt time.Time `json:"created_at"`
 	UpdatedAt time.Time `json:"updated_at"`
 
-	// Relasi
-	User   Users        `gorm:"foreignKey:UserID" json:"user,omitempty"`
-	Outlet core.Outlets `gorm:"foreignKey:OutletID" json:"outlet,omitempty"`
-	Role   Roles        `gorm:"foreignKey:RoleID" json:"role,omitempty"`
+	// Relasi - Disable auto foreign key creation
+	User   Users        `gorm:"foreignKey:UserID;constraint:OnUpdate:CASCADE,OnDelete:CASCADE" json:"user,omitempty"`
+	Outlet core.Outlets `gorm:"foreignKey:OutletID;constraint:OnUpdate:CASCADE,OnDelete:CASCADE" json:"outlet,omitempty"`
+	Role   Roles        `gorm:"foreignKey:RoleID;constraint:OnUpdate:CASCADE,OnDelete:CASCADE" json:"role,omitempty"`
 }
