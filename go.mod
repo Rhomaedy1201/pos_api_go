@@ -12,6 +12,8 @@ require (
 	gorm.io/gorm v1.31.0
 )
 
+require github.com/shopspring/decimal v1.4.0 // indirect
+
 require (
 	github.com/bytedance/gopkg v0.1.3 // indirect
 	github.com/bytedance/sonic v1.14.1 // indirect
