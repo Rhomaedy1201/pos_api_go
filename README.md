@@ -18,6 +18,8 @@ Point of Sale (POS) API adalah aplikasi backend untuk sistem kasir yang dibangun
 - **[PostgreSQL Driver](https://github.com/go-gorm/postgres)** `v1.6.0` - Database Driver
 - **[Gormigrate](https://github.com/go-gormigrate/gormigrate)** `v2.1.5` - Database Migration Tool
 - **[GoDotEnv](https://github.com/joho/godotenv)** `v1.5.1` - Environment Variable Loader
+- **[UUID](https://github.com/google/uuid)** `v1.5.1` - UIID 
+- **[DECIMAL](https://github.com/shopspring/decimal)** `v1.5.1` - DECIMAL 
 
 ### **Database**
 - **[PostgreSQL](https://www.postgresql.org/)** - Primary Database
