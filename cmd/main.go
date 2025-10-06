@@ -1,8 +1,11 @@
 package main
 
 import (
+	"log"
 	"pos_api_go/config"
 	"pos_api_go/internal/database"
+	"pos_api_go/internal/handlers"
+	"pos_api_go/internal/routes"
 
 	"github.com/gin-gonic/gin"
 )
@@ -16,45 +19,33 @@ func main() {
 
 	// Run migrations
 	db := config.GetDB()
-	database.RunMigrations(db)
+	if err := database.RunMigrations(db); err != nil {
+		log.Fatal("Failed to run migrations:", err)
+	}
 
-	// Inisialisasi Gin
-	router := gin.Default()
+	// Initialize handlers
+	handler := handlers.NewHandler()
 
-	// Membuat route dengan method GET
-	router.GET("/", func(c *gin.Context) {
-		// Return response JSON
+	// Setup routes
+	router := routes.NewRouter(handler)
+	engine := router.SetupAPIRoutes()
+
+	// Add basic root endpoint
+	engine.GET("/", func(c *gin.Context) {
 		c.JSON(200, gin.H{
-			"message": "Hello World! Database connected successfully!",
-		})
-	})
-
-	// Health check route untuk database
-	router.GET("/health", func(c *gin.Context) {
-		db := config.GetDB()
-		sqlDB, err := db.DB()
-		if err != nil {
-			c.JSON(500, gin.H{
-				"status":  "error",
-				"message": "Database connection error",
-			})
-			return
-		}
-
-		if err := sqlDB.Ping(); err != nil {
-			c.JSON(500, gin.H{
-				"status":  "error",
-				"message": "Database ping failed",
-			})
-			return
-		}
-
-		c.JSON(200, gin.H{
+			"message": "POS API Go - Server is running",
+			"version": "1.0.0",
 			"status":  "ok",
-			"message": "Database is healthy",
 		})
 	})
 
-	// Mulai server
-	router.Run(":" + config.GetEnv("APP_PORT", "3000"))
+	// Start server
+	port := config.GetEnv("APP_PORT", "3000")
+	log.Printf("🚀 Server starting on port %s", port)
+	log.Printf("📋 Health check available at: http://localhost:%s/health", port)
+	log.Printf("🔗 API endpoints available at: http://localhost:%s/api/v1", port)
+
+	if err := engine.Run(":" + port); err != nil {
+		log.Fatal("Failed to start server:", err)
+	}
 }

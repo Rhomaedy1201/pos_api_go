@@ -1,0 +1,37 @@
+2025/10/06 22:20:32 Database connected successfully!
+2025/10/06 22:20:32 ✅ Migration completed successfully!
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /health                   --> pos_api_go/internal/handlers.(*Handler).HealthCheck-fm (5 handlers)
+[GIN-debug] POST   /api/v1/auth/signin       --> pos_api_go/internal/handlers.(*Handler).SignIn-fm (5 handlers)
+[GIN-debug] POST   /api/v1/auth/signup       --> pos_api_go/internal/handlers.(*Handler).SignUp-fm (5 handlers)
+[GIN-debug] POST   /api/v1/auth/refresh      --> pos_api_go/internal/handlers.(*Handler).RefreshToken-fm (5 handlers)
+[GIN-debug] GET    /api/v1/users/            --> pos_api_go/internal/handlers.(*Handler).ListUsers-fm (6 handlers)
+[GIN-debug] POST   /api/v1/users/            --> pos_api_go/internal/handlers.(*Handler).CreateUser-fm (6 handlers)
+[GIN-debug] GET    /api/v1/users/:id         --> pos_api_go/internal/handlers.(*Handler).GetUserByID-fm (6 handlers)
+[GIN-debug] PUT    /api/v1/users/:id         --> pos_api_go/internal/handlers.(*Handler).UpdateUser-fm (6 handlers)
+[GIN-debug] DELETE /api/v1/users/:id         --> pos_api_go/internal/handlers.(*Handler).RemoveUser-fm (6 handlers)
+[GIN-debug] GET    /api/v1/products/         --> pos_api_go/internal/handlers.(*Handler).ListProducts-fm (6 handlers)
+[GIN-debug] POST   /api/v1/products/         --> pos_api_go/internal/handlers.(*Handler).AddProduct-fm (6 handlers)
+[GIN-debug] GET    /api/v1/products/:id      --> pos_api_go/internal/handlers.(*Handler).GetProductByID-fm (6 handlers)
+[GIN-debug] PUT    /api/v1/products/:id      --> pos_api_go/internal/handlers.(*Handler).ModifyProduct-fm (6 handlers)
+[GIN-debug] DELETE /api/v1/products/:id      --> pos_api_go/internal/handlers.(*Handler).RemoveProduct-fm (6 handlers)
+[GIN-debug] GET    /api/v1/categories/       --> pos_api_go/internal/handlers.(*Handler).ListCategories-fm (6 handlers)
+[GIN-debug] POST   /api/v1/categories/       --> pos_api_go/internal/handlers.(*Handler).CreateCategory-fm (6 handlers)
+[GIN-debug] GET    /api/v1/customers/        --> pos_api_go/internal/handlers.(*Handler).ListCustomers-fm (6 handlers)
+[GIN-debug] POST   /api/v1/customers/        --> pos_api_go/internal/handlers.(*Handler).CreateCustomer-fm (6 handlers)
+[GIN-debug] GET    /api/v1/sales/            --> pos_api_go/internal/handlers.(*Handler).ListSales-fm (6 handlers)
+[GIN-debug] POST   /api/v1/sales/            --> pos_api_go/internal/handlers.(*Handler).ProcessSale-fm (6 handlers)
+[GIN-debug] GET    /api/v1/sales/:id         --> pos_api_go/internal/handlers.(*Handler).GetSaleByID-fm (6 handlers)
+[GIN-debug] GET    /                         --> main.main.func1 (5 handlers)
+2025/10/06 22:20:32 🚀 Server starting on port 3000
+2025/10/06 22:20:32 📋 Health check available at: http://localhost:3000/health
+2025/10/06 22:20:32 🔗 API endpoints available at: http://localhost:3000/api/v1
+[GIN-debug] Listening and serving HTTP on :3000
+[2025/10/06 - 22:20:53] GET /health 200 1.231709ms ::1
+[2025/10/06 - 22:21:03] GET / 200 1.528417ms ::1
+[2025/10/06 - 22:21:19] POST /api/v1/auth/signin 501 25.917µs ::1
+[2025/10/06 - 22:21:36] GET /api/v1/users/ 401 427.334µs ::1
+[2025/10/06 - 22:21:50] GET /api/v1/users/ 501 304.375µs ::1

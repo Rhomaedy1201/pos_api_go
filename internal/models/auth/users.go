@@ -12,6 +12,7 @@ type Users struct {
 	Email       string    `gorm:"type:varchar(100);uniqueIndex;not null" json:"email"`
 	Password    string    `gorm:"type:varchar(255);not null" json:"-"`
 	PhoneNumber string    `gorm:"type:varchar(130);uniqueIndex;not null" json:"phone_number"`
+	Status      string    `gorm:"type:user_status;default:'active'" json:"status"`
 	CreatedAt   time.Time `json:"created_at"`
 	UpdatedAt   time.Time `json:"updated_at"`
 

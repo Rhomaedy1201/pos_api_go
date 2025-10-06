@@ -46,7 +46,83 @@ pos_api_go/
 ├── .env                    # Environment variables
 ├── go.mod                  # Go module dependencies
 ├── go.sum                  # Go module checksums
-└── README.md               # Dokumentasi proyek
+└── # POS API Go - Point of Sale System
+
+A modern Point of Sale (POS) API built with Go, Gin, and GORM with PostgreSQL.
+
+## Features
+
+- 🏗️ **Clean Architecture** - Organized with handlers, middleware, services, and models
+- 🔐 **Authentication & Authorization** - JWT-based auth with role-based access control
+- 🗄️ **Database Management** - Structured migrations and seeders
+- 📊 **Multi-tenant Support** - Business and outlet management
+- 🛒 **Sales Management** - Complete transaction processing
+- 📦 **Inventory Control** - Product and stock management
+- 👥 **User Management** - Role-based user access
+- 🔍 **RESTful API** - Clean and documented endpoints
+
+## Quick Start
+
+### Prerequisites
+
+- Go 1.21 or higher
+- PostgreSQL 12 or higher
+- Make (optional, for easier commands)
+
+### Installation
+
+1. **Install dependencies**
+   ```bash
+   make deps
+   ```
+
+2. **Setup database**
+   ```bash
+   make migrate
+   make seed
+   ```
+
+3. **Start the server**
+   ```bash
+   make dev  # Development mode with hot reload
+   ```
+
+## API Endpoints
+
+### Authentication
+- `POST /api/v1/auth/signin` - User sign in
+- `POST /api/v1/auth/signup` - User registration
+- `POST /api/v1/auth/refresh` - Refresh token
+
+### Users (Protected)
+- `GET /api/v1/users` - List users
+- `POST /api/v1/users` - Create user
+- `GET /api/v1/users/:id` - Get user by ID
+- `PUT /api/v1/users/:id` - Update user
+- `DELETE /api/v1/users/:id` - Delete user
+
+### Products (Protected)
+- `GET /api/v1/products` - List products
+- `POST /api/v1/products` - Create product
+- `GET /api/v1/products/:id` - Get product by ID
+- `PUT /api/v1/products/:id` - Update product
+- `DELETE /api/v1/products/:id` - Delete product
+
+### Health Check
+- `GET /health` - Database health check
+
+## Development Commands
+
+```bash
+make deps      # Install dependencies
+make dev       # Development with hot reload
+make migrate   # Run migrations
+make seed      # Run seeders
+make build     # Build application
+make run       # Run application
+make test      # Run tests
+make setup     # Setup everything
+```               # Dokumentasi proyek
 ```
 
 ## 🛠️ Instalasi dan Setup

@@ -14,13 +14,13 @@ type Transactions struct {
 	ID              uuid.UUID       `gorm:"type:uuid;default:uuid_generate_v4();primaryKey" json:"id"`
 	OutletID        uuid.UUID       `gorm:"type:uuid;not null" json:"outlet_id"`
 	UserID          uuid.UUID       `gorm:"type:uuid;not null" json:"user_id"`
-	CustomerID      uuid.UUID       `gorm:"type:uuid;not null" json:"customer_id"`
+	CustomerID      uuid.UUID       `gorm:"type:uuid" json:"customer_id"`
 	InvoiceNumber   string          `gorm:"type:varchar(100);uniqueIndex;not null" json:"invoice_number"`
 	SubTotal        decimal.Decimal `gorm:"type:numeric(15,2);not null" json:"sub_total"`
 	TotalDiscount   decimal.Decimal `gorm:"type:numeric(15,2);not null" json:"total_discount"`
 	TaxAmount       decimal.Decimal `gorm:"type:numeric(15,2);not null" json:"tax_amount"`
 	GrandTotal      decimal.Decimal `gorm:"type:numeric(15,2);not null" json:"grand_total"`
-	Status          string          `gorm:"type:varchar(50);not null" json:"status"`
+	Status          string          `gorm:"type:transaction_status;default:'pending'" json:"status"`
 	TransactionTime time.Time       `gorm:"not null" json:"transaction_time"`
 	CreatedAt       time.Time       `json:"created_at"`
 	UpdatedAt       time.Time       `json:"updated_at"`
